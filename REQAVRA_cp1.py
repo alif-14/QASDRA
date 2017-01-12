@@ -496,7 +496,7 @@ except IOError:
     print 'cannot Open', fastqfile
 except:
     if lenequality == True:
-        print "*******\nan ERROR occured while processing your file!! read length and associated qualities doesn't macth at read %s and line %s of your file!!! check your file and try again later!\n*******" % (str(fqr),str(l))
+        print "*******\nan ERROR occured while processing your file!! read length and associated qualities doesn't macth at %s th read at line %s of your file!!! check your file and try again later!\n*******" % (str(fqr),str(l))
     else:        
         print "Your File Cannot Be Processed!!! ***" , " *** Try Again!!! "
 
