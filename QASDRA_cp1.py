@@ -248,8 +248,7 @@ def Report(im0,t):
     doc.build(Story)
 
     return
-
-    
+   
 #Plot function        
 def lmetricplot(p):
 #fontweight='bold', 
@@ -404,7 +403,7 @@ sum_of_max=0 ; sum_of_min=0 ; sum_of_avg=0 ; sum_of_mrno=0 ; sum_of_rqavgs=0 ; m
 aimr=0 #average intensified maximal ranges associated with length of reads
 
 ######################################################giving the arguments using command line###################################################################
-parser = argparse.ArgumentParser(prog='REQAVRA_cp1',description=' ',usage='This program will analyze entered fastq file according to the reads phred quality scores,in order to run program file name, k, and v values are necessary; there are also some other optional features if you wish to use\n%(prog)s [optional features are: -r random sampling, -fl for filtering lengths less than user defined longest length, -fs for filtering lengths less than user defined shortest length, -fa for filtering lengths less than user defined average length, -b ASCII-BASE of Phred quality scores, and -p for plotting distributions instead of their percentage]\nData should be entered like this: python REQAVRA_cp1.py filename.fastq k v [-r number -fl number -fs number -fa number -b {33,64} -p]',epilog='sample command line should be like this:'+'\n'+'python REQAVRA_cp1.py 2 20 -r 50 -fl 20 -fs 5 -fa 15 -b 33 -p'+'\n' + 'if *** Remember you can skip optional features if still it is not clear read the readme.txt file')
+parser = argparse.ArgumentParser(prog='QASDRA_cp1',description=' ',usage='This program will analyze entered fastq file according to the reads phred quality scores,in order to run program file name, k, and v values are necessary; there are also some other optional features if you wish to use\n%(prog)s [optional features are: -r random sampling, -fl for filtering lengths less than user defined longest length, -fs for filtering lengths less than user defined shortest length, -fa for filtering lengths less than user defined average length, -b ASCII-BASE of Phred quality scores, and -p for plotting distributions instead of their percentage]\nData should be entered like this: python QASDVRA_cp1.py filename.fastq k v [-r number -fl number -fs number -fa number -b {33,64} -p]',epilog='sample command line should be like this:'+'\n'+'python QASDRA_cp1.py 2 20 -r 50 -fl 20 -fs 5 -fa 15 -b 33 -p'+'\n' + 'if *** Remember you can skip optional features if still it is not clear read the readme.txt file')
 parser.add_argument('filename',metavar='File Name', help="Name of the fastq file should be like this: 'filename.fastq' ")
 parser.add_argument('k-value',type=int,metavar='k Value',help='value for k')
 parser.add_argument('v-value',type=int,metavar='v Value',help='value for v')
@@ -499,4 +498,3 @@ except:
         print "*******\nan ERROR occured while processing your file!! read length and associated qualities doesn't macth at %s th read at line %s of your file!!! check your file and try again later!\n*******" % (str(fqr),str(l))
     else:        
         print "Your File Cannot Be Processed!!! ***" , " *** Try Again!!! "
-
