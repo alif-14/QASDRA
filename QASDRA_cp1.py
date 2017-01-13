@@ -216,18 +216,18 @@ def Report(im0,t):
     styles.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
 
     formatted_time = time.ctime()
-    header="<font size=14 ><strong>QASDRA - Quality Assessment of Sequencing Data via Range Analysis </strong></font>"
-    ptext = "<font size=11>File Name: </font><font size=14 color='red'><strong><u>%s</u></strong></font><font size=11> / Date: </font><font size=11 color='blue' > <u>%s</u></font>" % (fastqfile,formatted_time)
+    header="<font size=11 ><strong>Quality Assessment of Sequencing Data via Range Analysis </strong></font>"
+    ptext = "<font size=9>File Name: </font><font size=10 color='red'><strong><u>%s</u></strong></font><font size=9> / Date: </font><font size=9 color='blue' > <u>%s</u></font>" % (fastqfile,formatted_time)
     p0 = Paragraph(header, styles["Normal"])
     p1 = Paragraph(ptext, styles["Normal"])
  
     reporttitle=[[p0],[p1]]
-    rprttitle=Table(reporttitle,1*[5*inch], 2*[0.2*inch],style=[('ALIGN',(0,0),(-1,-1),'CENTER'),('VALIGN',(0,0),(-1,-1),'MIDDLE')]) #
+    rprttitle=Table(reporttitle,1*[5*inch], 2*[0.2*inch]) 
     Story.append(rprttitle)
     Story.append(Spacer(1, 10))
 
-    tabletitle1="<font size=12 ><strong>Input Sequencing Data Digest:</strong></font>"
-    tabletitle2="<font size=12 ><strong>Computed QAVRA Vector for k= %d , v= %d:</strong></font>" % (k,v)
+    tabletitle1="<font size=9 ><strong>Input Sequencing Data Digest:</strong></font>"
+    tabletitle2="<font size=9 ><strong>Computed QASDRA Vector for k= %d , v= %d:</strong></font>" % (k,v)
 
     p3 = Paragraph(tabletitle1, styles["BodyText"])
     p4 = Paragraph(tabletitle2, styles["BodyText"]) 
