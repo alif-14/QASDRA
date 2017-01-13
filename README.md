@@ -1,5 +1,5 @@
-# QAVAR
-Quality Assessment via Range Analysis
+# QASDRA
+Quality Assessment of Sequencing Data via Range Analysis
 #Ali Fotouhi
 #Research Assistant - Istanbul Technical University
 #office: DAMGA Lab - UYBHM Building - ITU Ayazaga Campus - 34469 Istanbul-Turkey
@@ -20,7 +20,7 @@ further information can be found in the "Quality Assessment of Sequencing Data M
   
 GENERAL INFO:
 
-REQAVRA_cp1 is a tool for analyzing fastq files using their phred quality scores. this tool gives you general and overall insight about the file you have in hand.
+QASDRA_cp1 is a tool for analyzing fastq files using their phred quality scores. this tool gives you general and overall insight about the file you have in hand.
 this tool has been implemented using Inverse Range Query algorithm, which we are trying to find the longest read segments with at most k base under user defined quality value v. at the end of the program this tool will provide graphical and analytical results in a single page pdf file.
 this tool has been written in python 2.7 under Linux Ubuntu 16.04.1 LTS and before running this program make sure your system has requiremnts to run this tool.
 
@@ -36,25 +36,25 @@ and finally, this tool uses python imaging library. (PIL)
  
 HOW IT WORKS:
 
-In order to use this tool efficiently, it is better to get a pre-insight about your file by running "QAVARAinfo.py" on your data. this tool will tell you about the maximum, minimum, and average lengths of reads in the file and also maximum and minimum Phred quality score. so you will choose 'v' value wisely by knowing about the ranges of Phred quality scores. and by knowing read lengths you can decide about the best value for k.
+In order to use this tool efficiently, it is better to get a pre-insight about your file by running "QASDRAinfo.py" on your data. this tool will tell you about the maximum, minimum, and average lengths of reads in the file and also maximum and minimum Phred quality score. so you will choose 'v' value wisely by knowing about the ranges of Phred quality scores. and by knowing read lengths you can decide about the best value for k.
 in order to run this tool you should write this in command line on mac or Linux: python QAVARAinfo.py filename.fastq
 which file name is the name of your file that you want to be processed.
 
-After finding out about k and v values now you can run the REQAVRA_cp1 tool in the command line:
-python REQAVRA_cp1.py filename.fastq k v [-r rvalue -fl flvalue -fs fsvalue -fa favalue -b bvalue -p]
+After finding out about k and v values now you can run the QASDRA_cp1 tool in the command line:
+python QASDRA_cp1.py filename.fastq k v [-r rvalue -fl flvalue -fs fsvalue -fa favalue -b bvalue -p]
 an example can be like this:
-python REQAVRA_cp1.py filename.fastq 2 20 -r 50 -fl 20 -fs 10 -fa 15 -b 33 -p
+python QASDRA_cp1.py filename.fastq 2 20 -r 50 -fl 20 -fs 10 -fa 15 -b 33 -p
 which we will explain them separately
 
 before using this tool you can also get help by this command line:
-python REQAVRA_cp1.py -h
+python QASDRA_cp1.py -h
 this command briefly will tell you about the values you should enter.
 
 Here we will explain each of these values
 
 Mandatory values:
 
-1. tool name: REQAVRA_cp1.py should be written in order to run this tool
+1. tool name: QASDRA_cp1.py should be written in order to run this tool
 2. file name: fastq file's name that you want to be processed should be written after tool name with its format.fastq
 3. k value: this value indicates the number of low-quality values that user wants to be in read segments which is a number.
 4. v value: this is the lowest quality score that user wants to use as the threshold.
