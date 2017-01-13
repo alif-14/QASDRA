@@ -216,7 +216,7 @@ def Report(im0,t):
     styles.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
 
     formatted_time = time.ctime()
-    header="<font size=14 ><strong>QAVRA - Quality Assessment via Range Analysis </strong></font>"
+    header="<font size=14 ><strong>QASDRA - Quality Assessment of Sequencing Data via Range Analysis </strong></font>"
     ptext = "<font size=11>File Name: </font><font size=14 color='red'><strong><u>%s</u></strong></font><font size=11> / Date: </font><font size=11 color='blue' > <u>%s</u></font>" % (fastqfile,formatted_time)
     p0 = Paragraph(header, styles["Normal"])
     p1 = Paragraph(ptext, styles["Normal"])
