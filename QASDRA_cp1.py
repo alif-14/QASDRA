@@ -230,14 +230,11 @@ def Report(im0,t):
     tabletitle2="<font size=9 ><strong>Computed QASDRA Vector for k= %d , v= %d:</strong></font>" % (k,v)
 
     p3 = Paragraph(tabletitle1, styles["BodyText"])
-    p4 = Paragraph(tabletitle2, styles["BodyText"]) 
-    tabletitles=[[p3,p4]]
-    tables=Table(tabletitles,2*[3.5*inch], 1*[0.4*inch])
-    Story.append(tables)
+    p4 = Paragraph(tabletitle2, styles["BodyText"])
 
-    info=[['Quality Score Format:', str(base)+' ASCII-based Phred','Average Longest Maximal Range length',str("{0:.2f}".format(sum_of_max/float(fqr-maxfr)))],['Quality Scores (min,max):', '('+str(minqs)+','+str(maxqs)+')','Average Shortest Maximal Range Length',str("{0:.2f}".format(sum_of_min/float(fqr-minfr)))],['Number of Reads: ',str(nor),'Grand Average Maximal Range Length',str("{0:.2f}".format(sum_of_avg/float(fqr-avgfr)))],['Processed Number of Reads: ',str(fqr),'Cubic Average Maximal Range Length', str("{0:.2f}".format(aimr/fqr)) ],['Read Length (min,max):','('+str(minlen)+','+str(maxlen)+')','Average Coefficient of Variation', str("{0:.2f}".format(CV/fqr))]]
+    info=[[p3,p4],['Quality Score Format:', str(base)+' ASCII-based Phred','Average Longest Maximal Range length',str("{0:.2f}".format(sum_of_max/float(fqr-maxfr)))],['Quality Scores (min,max):', '('+str(minqs)+','+str(maxqs)+')','Average Shortest Maximal Range Length',str("{0:.2f}".format(sum_of_min/float(fqr-minfr)))],['Number of Reads: ',str(nor),'Grand Average Maximal Range Length',str("{0:.2f}".format(sum_of_avg/float(fqr-avgfr)))],['Processed Number of Reads: ',str(fqr),'Cubic Average Maximal Range Length', str("{0:.2f}".format(aimr/fqr)) ],['Read Length (min,max):','('+str(minlen)+','+str(maxlen)+')','Average Coefficient of Variation', str("{0:.2f}".format(CV/fqr))]]
 
-    infotable=Table(info,style=[('LINEBEFORE',(2,0),(-2,-1),1,colors.black),('LINEABOVE',(0,0),(4,0),1,colors.black),])
+    infotable=Table(info,style=[('GRID',(0,0),(-1,-1),0.5, colors.grey),('SPAN',(0,0),(1,0)),('SPAN',(2,0),(3,0))])
     Story.append(infotable)
     Story.append(Spacer(1, 7))
 
