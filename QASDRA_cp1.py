@@ -15,7 +15,7 @@ matplotlib.use('TKAgg')
 import matplotlib.pyplot as plt
 from reportlab.lib import colors 
 from reportlab.lib.enums import TA_JUSTIFY
-from reportlab.lib.pagesizes import letter
+from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image,Table
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
@@ -209,7 +209,7 @@ def metricsavg(fqr):
 #for report
 def Report(im0,t):
 
-    doc = SimpleDocTemplate(fastqfile+'k'+str(k)+'v'+str(v)+"Report.pdf",pagesize=letter, rightMargin=0.5,leftMargin=0.5, topMargin=0.5,bottomMargin=0.5)
+    doc = SimpleDocTemplate(fastqfile+'k'+str(k)+'v'+str(v)+"Report.pdf",pagesize=A4, rightMargin=0.5,leftMargin=0.5, topMargin=0.5,bottomMargin=0.5)
     Story=[]
 
     styles=getSampleStyleSheet()
