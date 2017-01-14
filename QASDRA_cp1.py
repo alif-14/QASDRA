@@ -14,7 +14,7 @@ import matplotlib
 matplotlib.use('TKAgg')
 import matplotlib.pyplot as plt
 from reportlab.lib import colors 
-from reportlab.lib.enums import TA_JUSTIFY
+from reportlab.lib.enums import TA_JUSTIFY,TA_CENTER
 from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image,Table
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -214,17 +214,18 @@ def Report(im0,t):
 
     styles=getSampleStyleSheet()
     styles.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
+    styles.add(ParagraphStyle(name='center', alignment=TA_CENTER))
 
     formatted_time = time.ctime()
-    header="<font size=11 ><strong>Quality Assessment of Sequencing Data via Range Analysis </strong></font>"
-    ptext = "<font size=9>File Name: </font><font size=10 color='red'><strong><u>%s</u></strong></font><font size=9> / Date: </font><font size=9 color='blue' > <u>%s</u></font>" % (fastqfile,formatted_time)
-    p0 = Paragraph(header, styles["Normal"])
-    p1 = Paragraph(ptext, styles["Normal"])
+    header="<font size=12 ><strong>QASDRA - Quality Assessment of Sequencing Data via Range Analysis </strong></font>"
+    ptext = "<font size=10>File Name: </font><font size=11 color='red'><strong>%s</strong></font><font size=10> / Date: </font><font size=10 color='blue' > %s</font>" % (fastqfile,formatted_time)
+    p0 = Paragraph(header, styles["center"])
+    p1 = Paragraph(ptext, styles["center"])
  
     reporttitle=[[p0],[p1]]
-    rprttitle=Table(reporttitle,1*[5*inch], 2*[0.2*inch]) 
+    rprttitle=Table(reporttitle) 
     Story.append(rprttitle)
-    Story.append(Spacer(1, 10))
+    Story.append(Spacer(1, 22))
 
     tabletitle1="<font size=9 ><strong>Input Sequencing Data Digest:</strong></font>"
     tabletitle2="<font size=9 ><strong>Computed QASDRA Vector for k= %d , v= %d:</strong></font>" % (k,v)
@@ -232,14 +233,15 @@ def Report(im0,t):
     p3 = Paragraph(tabletitle1, styles["BodyText"])
     p4 = Paragraph(tabletitle2, styles["BodyText"])
 
-    info=[[p3,p4],['Quality Score Format:', str(base)+' ASCII-based Phred','Average Longest Maximal Range length',str("{0:.2f}".format(sum_of_max/float(fqr-maxfr)))],['Quality Scores (min,max):', '('+str(minqs)+','+str(maxqs)+')','Average Shortest Maximal Range Length',str("{0:.2f}".format(sum_of_min/float(fqr-minfr)))],['Number of Reads: ',str(nor),'Grand Average Maximal Range Length',str("{0:.2f}".format(sum_of_avg/float(fqr-avgfr)))],['Processed Number of Reads: ',str(fqr),'Cubic Average Maximal Range Length', str("{0:.2f}".format(aimr/fqr)) ],['Read Length (min,max):','('+str(minlen)+','+str(maxlen)+')','Average Coefficient of Variation', str("{0:.2f}".format(CV/fqr))]]
+    info=[[p3,'',p4,''],['Quality Score Format:', str(base)+' ASCII-based Phred','Average Longest Maximal Range length',str("{0:.2f}".format(sum_of_max/float(fqr-maxfr)))],['Quality Scores (min,max):', '('+str(minqs)+','+str(maxqs)+')','Average Shortest Maximal Range Length',str("{0:.2f}".format(sum_of_min/float(fqr-minfr)))],['Number of Reads: ',str(nor),'Grand Average Maximal Range Length',str("{0:.2f}".format(sum_of_avg/float(fqr-avgfr)))],['Processed Number of Reads: ',str(fqr),'Cubic Average Maximal Range Length', str("{0:.2f}".format(aimr/fqr)) ],['Read Length (min,max):','('+str(minlen)+','+str(maxlen)+')','Average Coefficient of Variation', str("{0:.2f}".format(CV/fqr))]]
 
     infotable=Table(info,style=[('GRID',(0,0),(-1,-1),0.5, colors.grey),('SPAN',(0,0),(1,0)),('SPAN',(2,0),(3,0))])
     Story.append(infotable)
-    Story.append(Spacer(1, 7))
+    Story.append(Spacer(1, 22))
 
     Story.append(im0)    
     Story.append(t)
+    Story.append(Spacer(1, 14))
     ptext = "<font size=6 >developed by: </font><font size=7 color='green' > fotouhi@itu.edu.tr</font>"
     Story.append(Paragraph(ptext, styles["Normal"]))
     doc.build(Story)
