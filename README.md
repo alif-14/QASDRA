@@ -1,9 +1,9 @@
 # QASDRA
 Quality Assessment of Sequencing Data via Range Analysis
-#Ali Fotouhi
-#Research Assistant - Istanbul Technical University
-#office: DAMGA Lab - UYBHM Building - ITU Ayazaga Campus - 34469 Istanbul-Turkey
-#E-mail: fotouhi@itu.edu.tr
+Ali Fotouhi
+Research Assistant - Istanbul Technical University
+office: DAMGA Lab - UYBHM Building - ITU Ayazaga Campus - 34469 Istanbul-Turkey
+E-mail: fotouhi@itu.edu.tr
 
 
 With the spread of high-throughput DNA sequencing, today, not only the research centers, but also the practitioners such as the hospitals, clinics, and even the individuals become customers of the sequencing centers. Each day more sequencing data than the previous is being produced rapidly. This brings a strong necessity to assess the quality of the generated data.
