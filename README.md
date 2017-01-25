@@ -1,7 +1,7 @@
 # QASDRA
 #Quality Assessment of Sequencing Data via Range Analysis
-#Ali Fotouhi
-#Research Assistant - Istanbul Technical University
+Ali Fotouhi
+Research Assistant - Istanbul Technical University
 office: DAMGA Lab - UYBHM Building - ITU Ayazaga Campus - 34469 Istanbul-Turkey
 #E-mail: fotouhi@itu.edu.tr
 
