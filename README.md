@@ -2,23 +2,11 @@
 #Quality Assessment of Sequencing Data via Range Analysis
 Ali Fotouhi
 Research Assistant - Istanbul Technical University  fotouhi@itu.edu.tr
-
-
-With the spread of high-throughput DNA sequencing, today, not only the research centers, but also the practitioners such as the hospitals, clinics, and even the individuals become customers of the sequencing centers. Each day more sequencing data than the previous is being produced rapidly. This brings a strong necessity to assess the quality of the generated data.
-
-It is well known that long intervals having fewer errors improve the performances of the post-processing tools in the down-stream analysis of the DNA sequencing data.
-This brings the idea of evaluating the DNA sequencing data quality via analyzing the lengths of the fragments that are above a certain threshold. 
-
-We investigate another dimension  for the quality assessment motivated with the fact that reads including long intervals having fewer errors improve the performances of the post-processing tools in the down-stream analysis. Thus, the quality assessment procedures proposed in this study aim to analyze the segments on the reads that are above a certain quality. We define an interval of a read to be of desired quality when there are at most $k$ quality scores less than or equal to a threshold value $v$, for some v and k  provided by the user.
-
-We present the algorithm to detect those ranges and introduce new metrics computed from their lengths. 
-These metrics include the longest, shortest, average, cubic average, and average variation coefficient of the lengths of the segments that are appropriate according to the v and k parameters.
-
-further information can be found in the "Quality Assessment of Sequencing Data M. Oğuzhan Külekci, Ali Fotouhi, and Mına Majidi " paper, which will be submitted soon.
   
 GENERAL INFO:
 
-QASDRA_cp1 is a tool for analyzing fastq files using their phred quality scores. this tool gives you general and overall insight about the file you have in hand.
+QASDRA_cp1 is a tool for analyzing fastq files using their phred quality scores. this tool gives you general and overall insight about the file you have in hand. It is well known that long intervals having fewer errors improve the performances of the post-processing tools in the down-stream analysis of the DNA sequencing data. We investigate another dimension for the quality assessment motivated with the fact that reads including long intervals having fewer errors improve the performances of the post-processing tools in the down-stream analysis.
+
 this tool has been implemented using Inverse Range Query algorithm, which we are trying to find the longest read segments with at most k base under user defined quality value v. at the end of the program this tool will provide graphical and analytical results in a single page pdf file.
 this tool has been written in python 2.7 under Linux Ubuntu 16.04.1 LTS and before running this program make sure your system has requiremnts to run this tool.
 
@@ -79,6 +67,9 @@ Optional values:
 "a positive aspect of this tool is filtration of longest, shortest and the average length of maximal ranges would not affect the overall analysis. it will just affect the analysis of related metrics. it means longest length filtration will just affect the analysis of longest maximal ranges, shortest length filtration will just affect the analysis of shortest maximal ranges and average length filtration will just affect the analysis of average maximal ranges, for instance, changes will ba applied to associated plots and figures."
 
 finally, this tool will generate a pdf file encompassing results of the quality assessment of sequencing data. furthermore, terminal based results will be printed and graphical results will be produced.
+
+Cite this paper as:
+Fotouhi A., Majidi M., Külekci M.O. (2018) Quality Assessment of High-Throughput DNA Sequencing Data via Range Analysis. In: Rojas I., Ortuño F. (eds) Bioinformatics and Biomedical Engineering. IWBBIO 2018. Lecture Notes in Computer Science, vol 10813. Springer, Cham DOI https://doi.org/10.1007/978-3-319-78723-7_37
 
 in the case of any ambiguity do not hesitate to mail me at fotouhi@itu.edu.tr. I will be grateful to know about this tool's flaws and will try to fix them.
 
